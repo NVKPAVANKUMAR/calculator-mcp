@@ -73,6 +73,19 @@ function createServer() {
     },
   );
 
+   server.registerTool(
+    "square",
+    {
+      description: "Calculate the square of a number",
+      inputSchema: z.object({
+        a: z.number(),
+      }),
+    },
+    async ({ a }) => ({
+      content: [{ type: "text", text: `${a}² = ${a * a}` }],
+    }),
+  );
+
   return server;
 }
 

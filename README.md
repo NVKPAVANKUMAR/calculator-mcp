@@ -2,12 +2,13 @@
 
 A small, working Model Context Protocol (MCP) server written in TypeScript.
 
-It exposes four MCP tools:
+It exposes five MCP tools:
 
 - `add(a, b)`
 - `subtract(a, b)`
 - `multiply(a, b)`
 - `divide(a, b)`
+- `square(a)`
 
 ## Prerequisites
 
@@ -61,10 +62,13 @@ In the Inspector:
    - `subtract`
    - `multiply`
    - `divide`
+   - `square`
 4. Try `add` with `a=10`, `b=20`.
 5. Expected result: `10 + 20 = 30`.
-6. Try `divide` with `a=10`, `b=0`.
-7. Expected result: an MCP tool error saying division by zero is not allowed.
+6. Try `square` with `a=5`.
+7. Expected result: `5² = 25`.
+8. Try `divide` with `a=10`, `b=0`.
+9. Expected result: an MCP tool error saying division by zero is not allowed.
 
 ## MCP client configuration
 
@@ -154,9 +158,9 @@ LLM / MCP Host
        v
 Calculator MCP Server
        |
-   +---+---+---+
-   |   |   |   |
-  add sub mul div
+   +---+---+---+---+
+   |   |   |   |   |
+  add sub mul div square
 ```
 
 The MCP server exposes tools. The MCP client discovers those tools and sends tool calls. The server executes the calculation and returns the result.
