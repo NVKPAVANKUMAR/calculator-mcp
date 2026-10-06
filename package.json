@@ -1,6 +1,6 @@
 {
   "name": "sample-calculator-mcp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple calculator MCP server built with TypeScript and the MCP SDK.",
   "type": "module",
   "bin": {
