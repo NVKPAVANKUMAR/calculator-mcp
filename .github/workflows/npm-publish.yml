@@ -22,4 +22,13 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - run: npm publish --access public
+      - name: Publish to npm with OIDC
+        run: |
+          # Strip the injected auth token from .npmrc
+          if [ -n "$NPM_CONFIG_USERCONFIG" ] && [ -f "$NPM_CONFIG_USERCONFIG" ]; then
+            sed -i '/_authToken/d' "$NPM_CONFIG_USERCONFIG"
+          fi
+          # Bypass bash variable handling entirely
+          env -u NODE_AUTH_TOKEN npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ''
