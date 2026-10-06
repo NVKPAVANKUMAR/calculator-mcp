@@ -9,6 +9,10 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NVKPAVANKUMAR/calculator-mcp.git"
+  },
   "scripts": {
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
