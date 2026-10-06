@@ -12,10 +12,10 @@ function createServer() {
     "add",
     {
       description: "Add two numbers",
-      inputSchema: {
+      inputSchema: z.object({
         a: z.number(),
         b: z.number(),
-      },
+      }),
     },
     async ({ a, b }) => ({
       content: [{ type: "text", text: `${a} + ${b} = ${a + b}` }],
@@ -26,10 +26,10 @@ function createServer() {
     "subtract",
     {
       description: "Subtract the second number from the first number",
-      inputSchema: {
+      inputSchema: z.object({
         a: z.number(),
         b: z.number(),
-      },
+      }),
     },
     async ({ a, b }) => ({
       content: [{ type: "text", text: `${a} - ${b} = ${a - b}` }],
@@ -40,10 +40,10 @@ function createServer() {
     "multiply",
     {
       description: "Multiply two numbers",
-      inputSchema: {
+      inputSchema: z.object({
         a: z.number(),
         b: z.number(),
-      },
+      }),
     },
     async ({ a, b }) => ({
       content: [{ type: "text", text: `${a} × ${b} = ${a * b}` }],
@@ -54,10 +54,10 @@ function createServer() {
     "divide",
     {
       description: "Divide the first number by the second number",
-      inputSchema: {
+      inputSchema: z.object({
         a: z.number(),
         b: z.number(),
-      },
+      }),
     },
     async ({ a, b }) => {
       if (b === 0) {
